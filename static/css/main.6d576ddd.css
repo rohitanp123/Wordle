@@ -1,0 +1,2 @@
+.row{flex-direction:column}.line,.row{display:flex;gap:5px}.box{align-items:center;border:1px solid #000;display:flex;flex-direction:row;font-size:24px;height:50px;justify-content:center;text-transform:uppercase;width:50px}.correct{background-color:#90ee90}.close{background-color:#ff0}.incorrect{background-color:#d3d3d3}
+/*# sourceMappingURL=main.6d576ddd.css.map*/
