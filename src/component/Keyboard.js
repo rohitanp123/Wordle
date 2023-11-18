@@ -3,11 +3,7 @@ import { keyData } from "./constant";
 
 const Keyboard = ({ onPress }) => {
   const handleKeyPress = (key) => {
-    let keycode = key;
-    if (key === "<--") {
-      keycode = "Backspace";
-    }
-    onPress({ key: keycode });
+    onPress({ key: key });
   };
 
   return (
@@ -17,9 +13,18 @@ const Keyboard = ({ onPress }) => {
           <div key={idx} className="line">
             {el.map((item, index) => (
               <div
-                className={`keyBox ${item === "<--" ? "delete" : ""}`}
+                className={`keyBox ${item === "Backspace" ? "delete" : ""}`}
                 key={index}
                 onClick={() => handleKeyPress(item)}
+                style={
+                  item === "Backspace"
+                    ? {
+                        width: "fit-content",
+                        padding: "0 10px",
+                        textTransform: "capitalize",
+                      }
+                    : {}
+                }
               >
                 {item}
               </div>

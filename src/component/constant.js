@@ -2355,7 +2355,6 @@ export const constant = [
   "CAECA",
   "CAFES",
   "CAFFA",
-  "CAFIZ",
   "CAFOY",
   "CAGED",
   "CAGEY",
@@ -15922,5 +15921,5 @@ export const constant = [
 export const keyData = [
   ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
   ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
-  ["z", "x", "c", "v", "b", "n", "m", "<--"],
+  ["z", "x", "c", "v", "b", "n", "m", "Backspace"],
 ];

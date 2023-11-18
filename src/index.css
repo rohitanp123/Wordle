@@ -41,6 +41,7 @@
   text-transform: uppercase;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   cursor: pointer;
+  user-select: none;
 }
 .correct {
   background-color: lightgreen;
@@ -49,12 +50,12 @@
   background-color: yellow;
 }
 .incorrect {
-  background-color: lightgrey;
+  background-color: #b2aeae;
 }
 .button {
   padding: 7px;
   outline: 0;
-  background-color: lightgrey;
+  background-color: #b2aeae;
   border-radius: 4px;
   border: 2px solid rgb(155, 155, 155);
   width: min-content;
@@ -79,4 +80,5 @@
   padding: 10px 20px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   cursor: pointer;
+  user-select: none;
 }
