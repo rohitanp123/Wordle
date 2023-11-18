@@ -42,6 +42,10 @@ const Board = () => {
       if (word.length !== 5) {
         return;
       }
+      if (!constant.includes(word.toUpperCase())) {
+        alert("Not valid word!");
+        return;
+      }
       const newGuesses = [...guesses];
       newGuesses[guesses.findIndex((el) => el === null)] = word;
       setGuesses(newGuesses);
@@ -56,6 +60,14 @@ const Board = () => {
     }
   };
 
+  // const handleHint = () => {
+  //   const newGuess = [...guesses];
+  //   const hintLength = newGuess[newGuess.length - 1]?.length;
+  //   console.log(newGuess, hintLength, "hintLength");
+  //   newGuess[newGuess.length - 1] = solution.substring(0, hintLength + 1 || 1);
+  //   setGuesses(newGuess);
+  // };
+
   return (
     <div className="row">
       {guesses.map((guess, i) => {
@@ -69,6 +81,9 @@ const Board = () => {
           />
         );
       })}
+      {/* <button type="button" className="button" onClick={handleHint}>
+        Hint
+      </button> */}
     </div>
   );
 };

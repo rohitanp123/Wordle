@@ -28,3 +28,17 @@
 .incorrect {
   background-color: lightgrey;
 }
+.button {
+  padding: 7px;
+  outline: 0;
+  background-color: lightgrey;
+  border-radius: 4px;
+  border: 2px solid rgb(155, 155, 155);
+  width: min-content;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(233, 229, 229);
+}
