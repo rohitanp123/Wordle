@@ -17,7 +17,7 @@ const Board = () => {
         constant[Math.floor(Math.random() * constant.length)].toLowerCase()
       );
     }
-  }, [constant]);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("keydown", handleType);
