@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Line from "component/Line";
 import { constant } from "component/constant";
+import Keyboard from "component/Keyboard";
 
 const ROW_LENGTH = 5;
 
@@ -69,22 +70,25 @@ const Board = () => {
   // };
 
   return (
-    <div className="row">
-      {guesses.map((guess, i) => {
-        const isCurrentGuess = i === guesses.findIndex((el) => el === null);
-        return (
-          <Line
-            uniqueKey={i}
-            guess={isCurrentGuess ? word : guess || ""}
-            isFinal={!isCurrentGuess && guess !== null}
-            solution={solution}
-          />
-        );
-      })}
-      {/* <button type="button" className="button" onClick={handleHint}>
+    <>
+      <div className="row">
+        {guesses.map((guess, i) => {
+          const isCurrentGuess = i === guesses.findIndex((el) => el === null);
+          return (
+            <Line
+              uniqueKey={i}
+              guess={isCurrentGuess ? word : guess || ""}
+              isFinal={!isCurrentGuess && guess !== null}
+              solution={solution}
+            />
+          );
+        })}
+        {/* <button type="button" className="button" onClick={handleHint}>
         Hint
       </button> */}
-    </div>
+      </div>
+      <Keyboard onPress={handleType} />
+    </>
   );
 };
 export default Board;

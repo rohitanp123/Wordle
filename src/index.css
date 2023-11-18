@@ -1,6 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.App {
+  background-color: rgb(234, 203, 234);
+  height: 100vh;
+  padding: 20px 10px;
+}
+
 .row {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 5px;
 }
 .line {
@@ -14,10 +25,22 @@
   display: flex;
   flex-direction: row;
   font-size: 24px;
-  display: flex;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
+}
+.keyBox {
+  width: 30px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  cursor: pointer;
 }
 .correct {
   background-color: lightgreen;
@@ -41,4 +64,19 @@
 }
 .button:hover {
   background-color: rgb(233, 229, 229);
+}
+.key_container {
+  margin-top: 20px;
+}
+.delete {
+  background-color: rgb(234, 147, 147);
+}
+.submit {
+  border: 1px solid rgb(2, 103, 2);
+  color: white;
+  background-color: rgb(58, 167, 58);
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  cursor: pointer;
 }
