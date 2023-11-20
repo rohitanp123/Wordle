@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
-import { Tooltip } from "@mui/material";
+import { Tooltip, Typography } from "@mui/material";
 import DialogBox from "./Dialog";
 
 const TopBar = () => {
@@ -10,10 +10,25 @@ const TopBar = () => {
   };
   return (
     <div className="topbar_container">
-      <Tooltip title="Help" arrow>
+      {/* <Tooltip title="Help" arrow>
         <ContactSupportIcon className="help_icon" onClick={handleHelpClick} />
-      </Tooltip>
-      {open && <DialogBox open={open} handleClose={handleHelpClick} />}
+      </Tooltip> */}
+      {open && (
+        <DialogBox
+          open={open}
+          handleClose={handleHelpClick}
+          dialogTitle="HOW TO PLAY"
+          dialogStyle={{
+            titleAlign: "center",
+            fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
+          }}
+          dialogContent={
+            <div>
+              <Typography></Typography>
+            </div>
+          }
+        />
+      )}
     </div>
   );
 };

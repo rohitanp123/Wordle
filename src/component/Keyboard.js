@@ -8,6 +8,9 @@ const Keyboard = ({ onPress }) => {
 
   return (
     <div className="row key_container">
+      <div className="submit" onClick={() => handleKeyPress("Enter")}>
+        SUBMIT
+      </div>
       {keyData.map((el, idx) => {
         return (
           <div key={idx} className="line">
@@ -22,6 +25,7 @@ const Keyboard = ({ onPress }) => {
                         width: "fit-content",
                         padding: "0 10px",
                         textTransform: "capitalize",
+                        boxShadow: "2px 2px 2px rgb(234, 147, 147)",
                       }
                     : {}
                 }
@@ -32,9 +36,6 @@ const Keyboard = ({ onPress }) => {
           </div>
         );
       })}
-      <div className="submit" onClick={() => handleKeyPress("Enter")}>
-        Submit
-      </div>
     </div>
   );
 };
