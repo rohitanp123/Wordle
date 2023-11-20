@@ -11,16 +11,22 @@ const TopBar = () => {
   return (
     <div className="topbar_container">
       {/* <Tooltip title="Help" arrow>
-        <ContactSupportIcon className="help_icon" onClick={handleHelpClick} />
+        <ContactSupportIcon
+          className="help_icon"
+          onClick={handleHelpClick}
+          style={{ width: "36px", height: "36px" }}
+        />
       </Tooltip> */}
       {open && (
         <DialogBox
           open={open}
           handleClose={handleHelpClick}
           dialogTitle="HOW TO PLAY"
-          dialogStyle={{
+          titleStyle={{
             titleAlign: "center",
             fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
+            color: "var(--green--)",
+            fontWeight: "bold",
           }}
           dialogContent={
             <div>

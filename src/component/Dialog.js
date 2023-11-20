@@ -19,7 +19,7 @@ export default function DialogBox({
   dialogTitle = "",
   dialogContent = null,
   DialogAction = [],
-  dialogStyle = {},
+  titleStyle = {},
 }) {
   const handleCloseDialog = () => {
     handleClose();
@@ -35,7 +35,7 @@ export default function DialogBox({
       >
         <div className="dialog">
           <div className="dialog_header">
-            <DialogTitle style={{ fontFamily: "inherit" }}>
+            <DialogTitle style={{ fontFamily: "inherit", ...titleStyle }}>
               {dialogTitle}
             </DialogTitle>
             <CloseIcon

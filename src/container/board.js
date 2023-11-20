@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Line from "component/Line";
-import { constant } from "component/constant";
+import { constant, detailedData } from "component/constant";
 import Keyboard from "component/Keyboard";
+import DialogBox from "component/Dialog";
 
 const ROW_LENGTH = 5;
 
@@ -10,6 +11,7 @@ const Board = () => {
   const [solution, setSolution] = useState("");
   const [word, setWord] = useState("");
   const [isGameOver, setIsGameOver] = useState(false);
+  const [successOpen, setSuccessOpen] = useState("");
 
   useEffect(() => {
     if (constant.length) {
@@ -18,7 +20,7 @@ const Board = () => {
       );
     }
   }, []);
-
+  console.log(solution, isGameOver);
   useEffect(() => {
     window.addEventListener("keydown", handleType);
     return () => window.removeEventListener("keydown", handleType);
@@ -54,6 +56,10 @@ const Board = () => {
       const isCorrect = solution === word;
       if (isCorrect) {
         setIsGameOver(true);
+        setSuccessOpen("success");
+      }
+      if (!isCorrect && newGuesses[newGuesses.length - 1]) {
+        setSuccessOpen("fail");
       }
       if (word.length >= 5) {
         return;
@@ -69,6 +75,19 @@ const Board = () => {
   //   setGuesses(newGuess);
   // };
 
+  const handleCloseSuccess = () => {
+    setSuccessOpen("");
+  };
+
+  const handleNextGame = () => {
+    setGuesses(Array(6).fill(null));
+    setWord("");
+    setIsGameOver(false);
+    setSolution(
+      constant[Math.floor(Math.random() * constant.length)].toLowerCase()
+    );
+    setSuccessOpen(false);
+  };
   return (
     <>
       <div className="row">
@@ -83,11 +102,43 @@ const Board = () => {
             />
           );
         })}
-        {/* <button type="button" className="button" onClick={handleHint}>
-        Hint
-      </button> */}
       </div>
       <Keyboard onPress={handleType} />
+      {successOpen && (
+        <DialogBox
+          open={!!successOpen}
+          handleClose={handleCloseSuccess}
+          dialogTitle={
+            successOpen === "fail"
+              ? `The word was: ${solution.toUpperCase()}`
+              : `You are GREAT!`
+          }
+          titleStyle={{
+            titleAlign: "center",
+            fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
+            color: "var(--green--)",
+            fontWeight: "bold",
+          }}
+          dialogContent={
+            <div>
+              {`${solution.toUpperCase()}: `}
+              <ol style={{ marginLeft: "30px" }}>
+                {detailedData[solution.toUpperCase()]?.map((el) => (
+                  <li>{el}</li>
+                ))}
+              </ol>
+            </div>
+          }
+          DialogAction={[
+            {
+              id: 1,
+              label: "Next",
+              onClick: handleNextGame,
+              variant: "contained",
+            },
+          ]}
+        />
+      )}
     </>
   );
 };

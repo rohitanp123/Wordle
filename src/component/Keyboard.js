@@ -1,5 +1,6 @@
 import React from "react";
 import { keyData } from "./constant";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const Keyboard = ({ onPress }) => {
   const handleKeyPress = (key) => {
@@ -22,15 +23,12 @@ const Keyboard = ({ onPress }) => {
                 style={
                   item === "Backspace"
                     ? {
-                        width: "fit-content",
-                        padding: "0 10px",
-                        textTransform: "capitalize",
-                        boxShadow: "2px 2px 2px rgb(234, 147, 147)",
+                        padding: "0 30px",
                       }
                     : {}
                 }
               >
-                {item}
+                {item === "Backspace" ? <KeyboardBackspaceIcon /> : item}
               </div>
             ))}
           </div>
