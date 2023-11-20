@@ -4,7 +4,7 @@
 }
 .App {
   background-color: rgb(234, 203, 234);
-  height: 100vh;
+  height: calc(100vh - 40px);
   padding: 20px 10px;
 }
 
@@ -81,4 +81,12 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   cursor: pointer;
   user-select: none;
+}
+.topbar_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.help_icon {
+  cursor: pointer;
 }
