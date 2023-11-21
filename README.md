@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is created in ReactJS. Basically this is a Wordle game in which we have to guess the auto generated word.
 
 ## Available Scripts
 
