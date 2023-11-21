@@ -2,6 +2,10 @@
 
 This project is created in ReactJS. Basically this is a Wordle game in which we have to guess the auto generated word.
 
+# Live Demo
+
+Click the link for demo http://rohitanp123@github.io/Wordle
+
 ## Available Scripts
 
 In the project directory, you can run:
