@@ -4,7 +4,7 @@ This project is created in ReactJS. Basically this is a Wordle game in which we 
 
 # Live Demo
 
-Click the link for demo http://rohitanp123@github.io/Wordle
+Click the link for demo [Live Demo](http://rohitanp123@github.io/Wordle)
 
 ## Available Scripts
 
