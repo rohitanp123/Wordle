@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { keyData } from "./constant";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
-const Keyboard = ({ onPress }) => {
+const Keyboard = ({ onPress, keyColor }) => {
   const handleKeyPress = (key) => {
     onPress({ key: key });
   };
@@ -15,22 +15,26 @@ const Keyboard = ({ onPress }) => {
       {keyData.map((el, idx) => {
         return (
           <div key={idx} className="line">
-            {el.map((item, index) => (
-              <div
-                className={`keyBox ${item === "Backspace" ? "delete" : ""}`}
-                key={index}
-                onClick={() => handleKeyPress(item)}
-                style={
-                  item === "Backspace"
-                    ? {
-                        padding: "0 30px",
-                      }
-                    : {}
-                }
-              >
-                {item === "Backspace" ? <KeyboardBackspaceIcon /> : item}
-              </div>
-            ))}
+            {el.map((item, index) => {
+              return (
+                <div
+                  className={`keyBox ${item === "Backspace" ? "delete" : ""} ${
+                    keyColor[item] ? keyColor[item] : ""
+                  }`}
+                  key={index}
+                  onClick={() => handleKeyPress(item)}
+                  style={
+                    item === "Backspace"
+                      ? {
+                          padding: "0 30px",
+                        }
+                      : {}
+                  }
+                >
+                  {item === "Backspace" ? <KeyboardBackspaceIcon /> : item}
+                </div>
+              );
+            })}
           </div>
         );
       })}

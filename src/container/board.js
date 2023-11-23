@@ -12,6 +12,7 @@ const Board = () => {
   const [word, setWord] = useState("");
   const [isGameOver, setIsGameOver] = useState(false);
   const [successOpen, setSuccessOpen] = useState("");
+  const [keyColor, setKeyColor] = useState({});
 
   useEffect(() => {
     if (constant.length) {
@@ -52,6 +53,30 @@ const Board = () => {
       const newGuesses = [...guesses];
       newGuesses[guesses.findIndex((el) => el === null)] = word;
       setGuesses(newGuesses);
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] === solution[i]) {
+          setKeyColor((prev) => {
+            let obj = prev;
+            obj[word[i]] = "correct";
+            return obj;
+          });
+        } else if (
+          solution.includes(word[i]) &&
+          keyColor[word[i]] !== "correct"
+        ) {
+          setKeyColor((prev) => {
+            let obj = prev;
+            obj[word[i]] = "close";
+            return obj;
+          });
+        } else if (!keyColor[word[i]]) {
+          setKeyColor((prev) => {
+            let obj = prev;
+            obj[word[i]] = "incorrect";
+            return obj;
+          });
+        }
+      }
       setWord("");
       const isCorrect = solution === word;
       if (isCorrect) {
@@ -87,6 +112,7 @@ const Board = () => {
       constant[Math.floor(Math.random() * constant.length)].toLowerCase()
     );
     setSuccessOpen(false);
+    setKeyColor({});
   };
   return (
     <>
@@ -103,7 +129,7 @@ const Board = () => {
           );
         })}
       </div>
-      <Keyboard onPress={handleType} />
+      <Keyboard onPress={handleType} keyColor={keyColor} />
       {successOpen && (
         <DialogBox
           open={!!successOpen}
